@@ -1,0 +1,47 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "crud application",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node_modules/.bin/webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dzheky/CRUD.git"
+  },
+  "author": "Evgeny Klimenchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dzheky/CRUD/issues"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.0.1",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "eslint": "^3.13.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "express": "^4.13.4",
+    "webpack": "^2.1.0-beta.22",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  },
+  "dependencies": {
+    "material-ui": "^0.16.6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-redux": "^5.0.2",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  }
+}
