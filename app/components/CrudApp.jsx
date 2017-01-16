@@ -1,46 +1,31 @@
 import React, { Component } from 'react'
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table'
+import AppBar from 'material-ui/AppBar'
+import FlatButton from 'material-ui/FlatButton'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
 
-import Person from './Person.jsx'
+import People from '../containers/People.jsx'
+
+const flaotingButtonStyle = {
+    position: 'absolute',
+    right: '10px',
+    bottom: '10px',
+  }
 
 export default class CrudApp extends Component {
-
   render() {
     return (
-      <Table>
-        <TableHeader
-          displaySelectAll={false}
-          adjustForCheckbox={false}
-        >
-          <TableHeaderColumn tooltip="Идентификационный номер">ID</TableHeaderColumn>
-          <TableHeaderColumn tooltip="Фамилия Имя Отчество">ФИО</TableHeaderColumn>
-          <TableHeaderColumn tooltip="Дата Рождения">Дата Рождения</TableHeaderColumn>
-          <TableHeaderColumn tooltip="Телефон">Телефон</TableHeaderColumn>
-        </TableHeader>
-        <TableBody
-          displayRowCheckbox={false}
-          showRowHover={true}
-          stripedRows={true}
-        >
-          {this.props.people.map((person, id) => {
-            return (
-              <TableRow>
-                <TableRowColumn>{id+1}</TableRowColumn>
-                <TableRowColumn>{person.name}</TableRowColumn>
-                <TableRowColumn>{person.dob}</TableRowColumn>
-                <TableRowColumn>{person.phone}</TableRowColumn>
-              </TableRow>
-            )
-          })}
-        </TableBody>
-      </Table>
+      <div>
+        <AppBar 
+          title="CRUD"
+          showMenuIconButton={false}
+          iconElementRight={<FlatButton label="Добавить" />}
+        />
+        <People />
+        <FloatingActionButton style={flaotingButtonStyle} >
+          <ContentAdd />
+        </FloatingActionButton>
+      </div>
     )
   }
 }

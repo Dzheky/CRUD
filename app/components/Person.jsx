@@ -1,19 +1,74 @@
-import React, { Component } from 'react'
-import {
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
+import React, { Compnent } from 'react'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+import Subheader from 'material-ui/Subheader'
 
-
-export default class Person extends Component {
-  render() {
-    return (
-        <TableRow>
-          <TableRowColumn>{this.props.id+1}</TableRowColumn>
-          <TableRowColumn>{this.props.person.name}</TableRowColumn>
-          <TableRowColumn>{this.props.person.dob}</TableRowColumn>
-          <TableRowColumn>{this.props.person.phone}</TableRowColumn>
-        </TableRow>
-    )
-  }
+const spanStyle = {
+    color: 'black',
 }
+
+const infoContainer = {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+}
+
+const infoBox = {
+    padding: '25px',
+}
+
+const Person = (props) => {
+    const action = [
+        <FlatButton 
+            label="Хорошо"
+            primary={true}
+            onTouchTap={props.handleClose}
+        />,
+    ]
+    return (
+        <Dialog
+            title={props.person.name}
+            actions={action}
+            modal={false}
+            open={props.visible}
+            onRequestClose={props.handleClose}
+        >
+            <div style={infoContainer}>
+                <div style={infoBox}>
+                    <div>Дата Рождения:</div>
+                    <div style={spanStyle}>{props.person.dob}</div>
+                </div>
+                {((person) => {
+                    let result = []
+                    if(props.person.phone) {
+                        result.push(
+                        <div style={infoBox}>
+                            <duv>Телефон:</duv>
+                            <div style={spanStyle}>{props.person.phone}</div>
+                        </div> 
+                        )
+                    }
+                    if(props.person.address) {
+                        result.push(
+                            <div style={infoBox}>
+                                <duv>Адресс:</duv>
+                                <div style={spanStyle}>{props.person.address}</div>
+                            </div>
+                        )
+                    }
+                    if(props.person.city) {
+                        result.push(
+                            <div style={infoBox}>
+                                <duv>Город:</duv>
+                                <div style={spanStyle}>{props.person.city}</div>
+                            </div>
+                        )
+                    }
+                    return result
+                })()}
+            </div>
+        </Dialog>
+    )
+}
+
+export { Person as default }

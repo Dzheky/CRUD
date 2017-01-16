@@ -12,9 +12,6 @@ module.exports = {
     'webpack-hot-middleware/client',
     './app/index.jsx',
   ],
-  alias: {
-    'react/lib/ReactMount': 'react-dom/lib/ReactMount',
-  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -28,7 +25,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['react-hot-loader/webpack', 'babel'],
+      loaders: ['react-hot-loader/webpack', 'babel-loader'],
       include: path.join(__dirname, 'app'),
     }],
   },
