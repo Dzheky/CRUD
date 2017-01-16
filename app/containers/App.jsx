@@ -4,14 +4,11 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import CrudApp from '../components/CrudApp.jsx'
 
-export default class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-        <Provider store={this.props.store}>
-            <CrudApp />
-        </Provider>
-      </MuiThemeProvider>
-    )
-  }
-}
+const App = props =>
+  <MuiThemeProvider>
+    <Provider store={props.store}>
+      <CrudApp />
+    </Provider>
+  </MuiThemeProvider>
+
+export { App as default }
