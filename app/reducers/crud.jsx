@@ -7,26 +7,29 @@ import {
 function edit(state = {}, action) {
   switch (action.type) {
     case ADD_PERSON:
-      return state
+      let addPersonState = Object.assign([], state)
+      addPersonState.push(action.person)
+      return addPersonState
     case DELETE_PERSON:
-      let newState = Object.assign([], state)
-      newState.splice(action.id, 1)
-      return newState
+      let deletePersonState = Object.assign([], state)
+      deletePersonState.splice(action.id, 1)
+      return deletePersonState
     case EDIT_PERSON:
-      console.log('ddddd')
-      return state
+      let editPersonState = Object.assign([], state)
+      editPersonState[action.id] = action.person
+      return editPersonState
     default:
       return state
   }
 }
 
 export default function root(state = {}, action) {
-  switch(action.type){
+  switch (action.type) {
     case ADD_PERSON:
     case DELETE_PERSON:
     case EDIT_PERSON:
       return Object.assign({}, state, {
-        people: edit(state.people, action)
+        people: edit(state.people, action),
       })
     default:
       return state

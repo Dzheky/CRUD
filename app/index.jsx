@@ -12,26 +12,26 @@ const DEFAULT_STATE = {
     people: [
       {
         name: 'Клименченко Евгений Юрьевич',
-        dob: '23 Декабря 1992',
+        dob: '1992-12-23',
         phone: '+7-777-777-7777',
       },
       {
         name: 'Петров Василий Петрович',
-        dob: '24 Декабря 1962',
+        dob: '1964-12-23',
         phone: '+7-555-555-5555',
       },
       {
         name: 'Дуров Павел Юрьевич',
-        dob: '23 Декабря 1992',
+        dob: '1888-12-13',
         phone: '+7-444-444-4444',
       },
       {
         name: 'Крутой Александр Васильевич',
-        dob: '23 Декабря 1992',
+        dob: '1992-05-23',
         phone: '+7-333-333-3333',
       },
-    ], 
-  }
+    ],
+  },
 }
 
 const store = configureStore(DEFAULT_STATE)
@@ -41,7 +41,7 @@ render(
       store={store}
     />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )
 
 if (module.hot) {
@@ -53,7 +53,7 @@ if (module.hot) {
           store={store}
         />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     )
   })
 }

@@ -1,16 +1,16 @@
 import { ADD_PERSON, EDIT_PERSON, DELETE_PERSON } from '../constants/ActionTypes.jsx'
 
-export function addPerson(text) {
+export function addPerson(person) {
   return {
     type: ADD_PERSON,
-    text,
+    person,
   }
 }
 
-export function editPerson(text, id) {
+export function editPerson(person, id) {
   return {
     type: EDIT_PERSON,
-    text,
+    person,
     id,
   }
 }

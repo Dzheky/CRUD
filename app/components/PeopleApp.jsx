@@ -35,11 +35,18 @@ export default class PeopleApp extends Component {
   state = {
     personVisible: false,
     addEditVisible: false,
+    addEditId: '',
+    addEditUpdate: false,
     personInfo: {},
   }
 
   handleEdit = (id, event) => {
     event.stopPropagation()
+    this.setState({
+      addEditVisible: true,
+      addEditId: id,
+      addEditUpdate: true,
+    })
   }
 
   handleDelete = (id, event) => {
@@ -69,6 +76,8 @@ export default class PeopleApp extends Component {
   handleAddEditClose = () => {
     this.setState({
       addEditVisible: false,
+      addEditId: '',
+      addEditUpdate: false,
     })
   }
 
@@ -92,6 +101,8 @@ export default class PeopleApp extends Component {
           handleClose={this.handleInfoClose}
         />
         <AddEditPerson
+          index={this.state.addEditId}
+          update={this.state.addEditUpdate}
           handleClose={this.handleAddEditClose}
           visible={this.state.addEditVisible}
         />
