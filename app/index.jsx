@@ -34,7 +34,33 @@ const DEFAULT_STATE = {
   },
 }
 
-const store = configureStore(DEFAULT_STATE)
+const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('state')
+    if (serializedState === null) {
+      return DEFAULT_STATE
+    }
+    return JSON.parse(serializedState)
+  } catch (error) {
+    return DEFAULT_STATE
+  }
+}
+
+const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('state', serializedState)
+  } catch (error) {
+    return undefined
+  }
+}
+
+const store = configureStore(loadState())
+
+store.subscribe(() => {
+  saveState(store.getState())
+})
+
 render(
   <AppContainer>
     <App
